@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/sema-front/static/css/main.6e96a772.chunk.css",
+    "main.js": "/sema-front/static/js/main.055ecd55.chunk.js",
+    "main.js.map": "/sema-front/static/js/main.055ecd55.chunk.js.map",
+    "runtime-main.js": "/sema-front/static/js/runtime-main.e5bb60cd.js",
+    "runtime-main.js.map": "/sema-front/static/js/runtime-main.e5bb60cd.js.map",
+    "static/css/2.f3cffc9e.chunk.css": "/sema-front/static/css/2.f3cffc9e.chunk.css",
+    "static/js/2.b24f8a15.chunk.js": "/sema-front/static/js/2.b24f8a15.chunk.js",
+    "static/js/2.b24f8a15.chunk.js.map": "/sema-front/static/js/2.b24f8a15.chunk.js.map",
+    "index.html": "/sema-front/index.html",
+    "precache-manifest.d9b6cdc530b08a4b74641dd1c729d1aa.js": "/sema-front/precache-manifest.d9b6cdc530b08a4b74641dd1c729d1aa.js",
+    "service-worker.js": "/sema-front/service-worker.js",
+    "static/css/2.f3cffc9e.chunk.css.map": "/sema-front/static/css/2.f3cffc9e.chunk.css.map",
+    "static/css/main.6e96a772.chunk.css.map": "/sema-front/static/css/main.6e96a772.chunk.css.map",
+    "static/js/2.b24f8a15.chunk.js.LICENSE.txt": "/sema-front/static/js/2.b24f8a15.chunk.js.LICENSE.txt",
+    "static/media/Idp.jpg": "/sema-front/static/media/Idp.4c76270c.jpg",
+    "static/media/busFire.png": "/sema-front/static/media/busFire.daedf997.png",
+    "static/media/flooicon.png": "/sema-front/static/media/flooicon.d398bac7.png",
+    "static/media/kaduna-map1.png": "/sema-front/static/media/kaduna-map1.636c3af6.png",
+    "static/media/semaLogo.jpg": "/sema-front/static/media/semaLogo.e6ee3c5b.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e5bb60cd.js",
+    "static/css/2.f3cffc9e.chunk.css",
+    "static/js/2.b24f8a15.chunk.js",
+    "static/css/main.6e96a772.chunk.css",
+    "static/js/main.055ecd55.chunk.js"
+  ]
+}
