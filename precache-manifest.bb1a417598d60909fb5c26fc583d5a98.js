@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ab4449ce5584ce8047fbe5a219b36145",
+    "revision": "64d9becc68a1ceadd9545e1ba42bd488",
     "url": "/sema-front/index.html"
   },
   {
-    "revision": "cd39b21d65129c651a08",
+    "revision": "a36e00a9394d79b7d0de",
     "url": "/sema-front/static/css/2.f3cffc9e.chunk.css"
   },
   {
-    "revision": "abc17c2585bacd406e56",
-    "url": "/sema-front/static/css/main.1aadd7ff.chunk.css"
+    "revision": "d3f4b677d857f587759e",
+    "url": "/sema-front/static/css/main.30bfa945.chunk.css"
   },
   {
-    "revision": "cd39b21d65129c651a08",
-    "url": "/sema-front/static/js/2.36a7f8e4.chunk.js"
+    "revision": "a36e00a9394d79b7d0de",
+    "url": "/sema-front/static/js/2.e1f27d8b.chunk.js"
   },
   {
     "revision": "23ec6c7f0411a6141095a6c739b32980",
-    "url": "/sema-front/static/js/2.36a7f8e4.chunk.js.LICENSE.txt"
+    "url": "/sema-front/static/js/2.e1f27d8b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "abc17c2585bacd406e56",
-    "url": "/sema-front/static/js/main.2e790c46.chunk.js"
+    "revision": "d3f4b677d857f587759e",
+    "url": "/sema-front/static/js/main.76f59ef1.chunk.js"
   },
   {
     "revision": "53937116a26e167c5669",
