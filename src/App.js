@@ -9,6 +9,14 @@ import UpdateAid from './components/reports/updateAid'
 import IncidentMap from './components/Map/incident';
 import Login from './components/login';
 import ReportsByLGA from './components/reports/reportsbylga'
+import DraftReports from './components/reports/draftreports';
+import DraftDetails from './components/reports/draftdetails';
+import UpdateOid from './components/reports/updateoid';
+import UpdateVid from './components/reports/updatevid';
+import UpdateCategory from './components/reports/updatecategory';
+import FollowupReports from './components/reports/followupreports';
+import FollowupDetails from './components/reports/followupdetails';
+import Volunteers from './components/users/volunteers';
 //import ReportsDetails
 
 
@@ -25,6 +33,22 @@ function App() {
         <Route path="/incidentmap/:id" exact component={IncidentMap} />
         <Route path="/login" exact component={Login} />
         <Route path="/reportsbylga/:id" exact component={ReportsByLGA} />
+        <Route path="/drafts" exact component={DraftReports} />
+        <Route path="/draft/:id" exact component={DraftDetails} />
+        <Route path="/updateoid/:id" exact component={UpdateOid} />
+        <Route path="/updatevid/:id" exact component={UpdateVid} />
+        <Route path="/updatecategory/:id" exact component={UpdateCategory} />
+        <Route path="/followup" exact component={FollowupReports} />
+        <Route path="/followup/:id" exact component={FollowupDetails} />
+        <Route path="/volunteers" exact component={Volunteers} />
+
+
+
+
+
+
+
+
 
 
 

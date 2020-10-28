@@ -3,19 +3,20 @@ import { Pie } from 'react-chartjs-2';
 
 
 
-class MyPie extends React.Component{
+class ZoneBPie extends React.Component{
    render(){
     return(
         <div >
 <Pie
 data={{
-                    labels: ['Zone A',' Zone B', 'Zone C'],
+                      labels: ['Zaria',' Kudan', 'Soba','Makarfi','Sabon Gari','Ikara','Kubau','Lere'],
+
                     datasets: [{
                         data:[this.props.zone_a,this.props.zone_b, this.props.zone_c],
                         backgroundColor:['red','blue','purple','green']
                     }]
                 }}
-                    height='100%'
+                    height='200%'
                 />
                 
             </div>
@@ -24,7 +25,7 @@ data={{
 
 
 }
-export default MyPie
+export default ZoneBPie
 /*
 const HFire =({zone_a, zone_b,zone_c})=> {
     return(

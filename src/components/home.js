@@ -22,6 +22,7 @@ import Fire from '../../src/img/firer.png'
 import BFire from '../../src/img/busFire.png'
 import MyPie from '../../src/analytics/pie'
 import FloodPie from '../../src/analytics/floodpie'
+import ZoneApie from '../analytics/ZoneApie'
 
 
 import './home.css'
@@ -31,7 +32,19 @@ import './home.css'
 const Home = ({params}) => {
 const [floodCases, setFloodCases]=useState(0);
 const [fireCases, setFireCases]=useState(0);
+const [accident, setAccident]=useState(0);
+const [zonAFire, setZoneAFire] = useState(0)
+const [zonBFire, setZoneBFire] = useState(0)
+const [zonCFire, setZoneCFire] = useState(0)
+const [zonAFlood, setZoneAFlood] = useState(0)
+const [zonBFlood, setZoneBFlood] = useState(0)
+const [zonCFlood, setZoneCFlood] = useState(0)
+const [zonAAccident, setZoneAAccicent] = useState(0)
+const [zonBAccident, setZoneBAccident] = useState(0)
+const [zonCAccident, setZoneCAccident] = useState(0)
+
 const [timer, setTimer] = useState(0)
+let events = ['fire','flood']
 
 
 const handleTimer = () =>{
@@ -44,8 +57,10 @@ const handleTimer = () =>{
     const Loader=()=>{
     setInterval(()=>    axios.get('https://kd-sema.herokuapp.com/api/v1/analytics')
         .then(res=>{
-            setFloodCases(res.data.flood)
-            setFireCases(res.data.fire)
+            setFloodCases(res.data['flood'])
+            setFireCases(res.data['fire'])
+            setAccident(res.data.accident)
+
     
         }).catch(err=>{console.log(err)}),1000)
     }
@@ -55,9 +70,35 @@ useEffect(()=>{
 
     axios.get('https://kd-sema.herokuapp.com/api/v1/analytics')
     .then(res=>{
-        setFloodCases(res.data.flood)
-        setFireCases(res.data.fire)
-    }).catch(err=>{console.log(err)})},
+         setFloodCases(res.data['flood'])
+        setFireCases(res.data['fire'])
+        setAccident(res.data.accident)
+     
+    }).catch(err=>{console.log(err)})
+
+    axios.get('https://kd-sema.herokuapp.com/api/v1/analytics/zonalfire')
+    .then(res=>{
+         setZoneAFire(res.data.zoneAFire)
+        setZoneBFire(res.data.zoneBFire)
+        setZoneCFire(res.data.zoneCFire)
+     
+    }).catch(err=>{console.log(err)})
+    axios.get('https://kd-sema.herokuapp.com/api/v1/analytics/zonalFlood')
+    .then(res=>{
+         setZoneAFlood(res.data.zoneAFlood)
+        setZoneBFlood(res.data.zoneBFlood)
+        setZoneCFlood(res.data.zoneCFlood)
+     
+    }).catch(err=>{console.log(err)})
+    axios.get('https://kd-sema.herokuapp.com/api/v1/analytics/zonalAccident')
+    .then(res=>{
+         setZoneAAccicent(res.data.zoneAAccident)
+        setZoneBAccident(res.data.zoneBAccident)
+        setZoneCAccident(res.data.zoneCAccident)
+     
+    }).catch(err=>{console.log(err)})
+
+},
     [])
 
 const handlel=()=> <Link to='/homp'/>
@@ -69,7 +110,9 @@ const handlel=()=> <Link to='/homp'/>
            <Menu/>
       
            <button onClick={handlel}>jjj</button>
-          <Body fire={fireCases} flood={floodCases} />
+          <Body fire={fireCases} flood={floodCases} accident={accident} zoneAFire={zonAFire}
+          zoneBFire={zonBFire} zoneCFire={zonCFire} zoneAFlood={zonAFlood} zoneBFlood={zonBFlood}
+          zoneCFlood={zonCFlood} zoneAAccident={zonAAccident} zoneBAccident={zonBAccident} zoneCAccident={zonCAccident}/>
          
 
             
@@ -78,13 +121,39 @@ const handlel=()=> <Link to='/homp'/>
     )
 }
 const Text =()=> <div><h3>SEMA</h3></div>
-const Body = ({fire, flood, time}) => {
+const Body = ({fire, flood, accident, time, zoneAFire,zoneBFire,zoneCFire, zoneAAccident,zoneBAccident,
+                zoneCAccident, zoneAFlood,zoneBFlood,zoneCFlood}) => {
+    const  Eventslabel = ['Fire','Flood','Accidents']
+    const  Firelabel = ['Zone A','Zone B','Zone C']
+    const Firecolor = ['red','blue','green']
+    const eventsColor = ['red','blue','green']
+    const Firedata= [zoneAFire, zoneBFire,zoneCFire]
+    const Flooddata= [zoneAFlood,zoneBFlood,zoneCFlood]
+    const AccidentData= [zoneAAccident,zoneBAccident,zoneCAccident]
+
+    const eventData = [fire,flood,accident]
+
+    
     return(
         <div className='container'>
-          <Link to="/reports">        <div  className='box'>
+
+       <div  className='box2'>
+                      <h3>  Events</h3><br/>
+    <h2>  {Number(fire) +Number(accident)+Number(flood)}</h2>
+    <ZoneApie  labels={Eventslabel} backgroundColor={eventsColor} data={eventData} />
+
+
+                    
+                    {//<img style={{zIndex:3, height:'30vh'}} className='responsive-image1' id='img' 
+   // alt='Logo' src={Fire} /> 
+    }
+                    </div>
+
+          <Link to="/reports">        <div  className='box2'>
                       <h3>  Fire</h3><br/>
-    <h2>  <a href='#/reports'target='_self' >{Number(fire) +6}</a></h2>
-    <MyPie zone_a={fire} zone_b={4} zone_c={2}/>
+    <h2>  {Number(zoneAFire) +Number(zoneBFire)+Number(zoneCFire)}</h2>
+    <ZoneApie  labels={Firelabel} backgroundColor={Firecolor} data={Firedata} />
+
 
                     
                     {//<img style={{zIndex:3, height:'30vh'}} className='responsive-image1' id='img' 
@@ -93,13 +162,25 @@ const Body = ({fire, flood, time}) => {
                     </div></Link>
           
              
-             <Link to="/floodreports">      <div className='box'>
+             <Link to="/floodreports">      <div className='box2'>
              <h3>  Flooded Communities</h3><br/>
-                    <h2>{Number(flood) + 8}</h2>
+                    <h2>{Number(zoneAFlood) + Number(zoneBFlood)+ Number(zoneCFlood) }</h2>
           {//}          <img style={{zIndex:3, height:'15vh'}} className='responsive-image' id='img' 
    // alt='Logo' src={Flood} /> 
     }
-            <FloodPie zone_a={flood} zone_b={4} zone_c={2} />
+             <ZoneApie  labels={Firelabel} backgroundColor={Firecolor} data={Flooddata} />
+
+
+                    </div></Link>
+
+                    <Link to="/floodreports">      <div className='box2'>
+             <h3>  Accidents</h3><br/>
+                    <h2>{Number(zoneAAccident) +Number(zoneBAccident)+ Number(zoneCAccident) }</h2>
+          {//}          <img style={{zIndex:3, height:'15vh'}} className='responsive-image' id='img' 
+   // alt='Logo' src={Flood} /> 
+    }
+             <ZoneApie  labels={Firelabel} backgroundColor={Firecolor} data={AccidentData} />
+
 
                     </div></Link>
                     <div className='box2'>
@@ -110,7 +191,7 @@ const Body = ({fire, flood, time}) => {
     //alt='Logo' src={BFire} /> 
 }
                     </div>
-                    <div className='box'>
+                    <div className='box2'>
                         <h3>IDP Camps</h3>
                             <h2>0</h2>
 
@@ -118,6 +199,23 @@ const Body = ({fire, flood, time}) => {
     //alt='Logo' src={IDP} /> 
 }
                     </div> 
+                    <div className='box2'>
+                       <h3> Erosion</h3><br/>
+                        <h2>0 </h2>
+
+     {//}               <img style={{zIndex:3, height:'15vh'}} className='responsive-image' id='img' 
+    //alt='Logo' src={BFire} /> 
+}
+                    </div>
+                    <div className='box2'>
+                       <h3> Accident</h3><br/>
+                        <h2>0 </h2>
+
+     {//}               <img style={{zIndex:3, height:'15vh'}} className='responsive-image' id='img' 
+    //alt='Logo' src={BFire} /> 
+}
+                    </div>
+                    
             </div>
     )
 }
@@ -153,6 +251,37 @@ const Menu = () => {
             <Link to="/reports">
             <button className='button'>
                 Report
+            </button>
+            </Link>
+
+            <Link to="/drafts">
+            <button className='button'>
+                Draft
+            </button>
+            </Link>
+            <Link to="/followup">
+            <button className='button'>
+                Followup
+            </button>
+            </Link>
+            <Link to="/followup">
+            <button className='button'>
+                Closed
+            </button>
+            </Link>
+            <Link to="/followup">
+            <button className='button'>
+                Rejected
+            </button>
+            </Link>
+            <Link to="/volunteers">
+            <button className='button'>
+                Volunteers
+            </button>
+            </Link>
+            <Link to="/followup">
+            <button className='button'>
+                System settings
             </button>
             </Link>
         </div>

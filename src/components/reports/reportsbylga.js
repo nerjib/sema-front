@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
-
-
+import ZoneApie from '../../analytics/ZoneApie'
+import './reports.css'
 
 const ReportsByLGA = ({match}) => {
-    let [reports, setReports] = useState('')
+    let [reports, setReports] = useState([])
 
 
     useEffect(()=>{
@@ -15,18 +15,40 @@ const ReportsByLGA = ({match}) => {
         })
     },[])
     return(
-        <div>
-            Welcome {reports.length}
+        <div className='mainContainer'>
+            {reports.length}
+           
+        
+                          <div className='container'>
+
 
            {
-               reports && <FireTable reports={reports}/>
+               reports && <Table fire={reports} reports={reports} LGA={match.params.id}/>
            }
+           </div>
         </div>
     )
 }
 
-const FireTable = ({reports}) =>{
+const Table = ({reports, fire, LGA}) =>{
+    const label=  ['Fire',' Accident', 'Flood','Arm bandit','erosion']
+    const color= ['red','blue','purple','green','gray']
+    const data = [3,5,7,9,5]
+
     return( 
+<div>
+        <div className='pie'>
+        <div  className='box'>
+              <h3>{LGA}</h3>
+<ZoneApie zone_a={fire} labels={label} backgroundColor={color} data={data} zone_b={4} zone_c={2}/>
+
+            
+            {//<img style={{zIndex:3, height:'30vh'}} className='responsive-image1' id='img' 
+// alt='Logo' src={Fire} /> 
+}
+            </div>
+            </div>
+            <div style={{margin:100}}>
         <table  className='table'>
             <thead>
                 <tr>
@@ -48,7 +70,8 @@ const FireTable = ({reports}) =>{
 }
 </tbody>
 </table>
-
+</div>
+</div>
     )
 }
 export default ReportsByLGA

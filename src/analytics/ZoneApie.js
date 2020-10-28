@@ -3,28 +3,36 @@ import { Pie } from 'react-chartjs-2';
 
 
 
-class MyPie extends React.Component{
-   render(){
-    return(
+const  ZoneAPie =({labels,zone_a,zone_b,zone_c, backgroundColor,data})=>{
+  /* render(){
+    let kf={a:'ddd',
+   }
+let hh=['hh','Kaduna North','Kaduna South','Giwa','Chikun','Igabi','Birnin Gwari', 'Kajuru']
+let kk=this.props.labels */
+
+return(
         <div >
+         
 <Pie
 data={{
-                    labels: ['Zone A',' Zone B', 'Zone C'],
+               //     labels: [kf.],
+              // labelthiss: ['Kaduna North','Kaduna South','Giwa','Chikun','Igabi','Birnin Gwari', 'Kajuru'],
+labels:  labels,
                     datasets: [{
-                        data:[this.props.zone_a,this.props.zone_b, this.props.zone_c],
-                        backgroundColor:['red','blue','purple','green']
+                        data,
+                        backgroundColor
                     }]
                 }}
-                    height='100%'
+                    height='150%'
                 />
                 
             </div>
     )
-    }
+ //   }
 
 
 }
-export default MyPie
+export default ZoneAPie
 /*
 const HFire =({zone_a, zone_b,zone_c})=> {
     return(
