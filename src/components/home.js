@@ -45,7 +45,14 @@ const [zonCAccident, setZoneCAccident] = useState(0)
 
 const [timer, setTimer] = useState(0)
 let events = ['fire','flood']
+let day1 = 1000 * 3600 * 24;
+let today = new Date();
 
+let date1= new Date("10/30/2020, 9:59:12")
+let date2= new Date().toLocaleString()
+let difftime= date2- date1
+let diffdate = Math.round((today.getTime() - date1.getTime())/day1).toFixed(0)
+let diffdate1 =(today.getTime() - date1.getTime())/day1
 
 const handleTimer = () =>{
 //this.inInterval2= setInterval( ()=>this.tick2(), 1000);
@@ -107,8 +114,7 @@ const handlel=()=> <Link to='/homp'/>
         <div className='mainContainer' >
             <Header time={timer}/> 
        
-           <Menu/>
-      
+           <Menu diffdate=         {diffdate}/>
            <button onClick={handlel}>jjj</button>
           <Body fire={fireCases} flood={floodCases} accident={accident} zoneAFire={zonAFire}
           zoneBFire={zonBFire} zoneCFire={zonCFire} zoneAFlood={zonAFlood} zoneBFlood={zonBFlood}
@@ -163,7 +169,7 @@ const Body = ({fire, flood, accident, time, zoneAFire,zoneBFire,zoneCFire, zoneA
           
              
              <Link to="/floodreports">      <div className='box2'>
-             <h3>  Flooded Communities</h3><br/>
+             <h3>  Flood</h3><br/>
                     <h2>{Number(zoneAFlood) + Number(zoneBFlood)+ Number(zoneCFlood) }</h2>
           {//}          <img style={{zIndex:3, height:'15vh'}} className='responsive-image' id='img' 
    // alt='Logo' src={Flood} /> 
@@ -237,23 +243,25 @@ const Header=({time})=>(
 )
 
 
-const Menu = () => {
+const Menu = (         {diffdate}
+    ) => {
     return (
 <div className='Menu'>
                 <button className='button'>
-                Home
+                Home  { new Date().toLocaleString() }      {diffdate}
+
             </button>
             <a href={`#/kdmap`}>
  <button className='button'>
                Map 
             </button></a>
            
-            <Link to="/reports">
+    {/*}        <Link to="/reports">
             <button className='button'>
                 Report
             </button>
             </Link>
-
+    */}
             <Link to="/drafts">
             <button className='button'>
                 Draft
@@ -264,7 +272,7 @@ const Menu = () => {
                 Followup
             </button>
             </Link>
-            <Link to="/followup">
+            <Link to="/closedreports">
             <button className='button'>
                 Closed
             </button>

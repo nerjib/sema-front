@@ -9,7 +9,7 @@ import { Link, Route, Redirect } from 'react-router-dom';
 import './reports.css'
 
 
-const DraftReports = () => {
+const ClosedReports = () => {
     let [reports, setReports] = useState([])
     let [fire, setFire]= useState(0)
 
@@ -39,11 +39,9 @@ const DraftReports = () => {
 
 const FireTable = ({reports, fire}) =>{
 
-    
     let day1 = 1000 * 3600 * 24;
     let today = new Date();
-    
-    
+
     
     return( 
         <div>
@@ -52,11 +50,11 @@ const FireTable = ({reports, fire}) =>{
         <table  className='table'>
             <thead>
                 <tr>
-                    <th>sn</th><th>Events</th><th>Location</th><th>Date</th><th>Time</th><th>Days </th><th>source</th>
+                    <th>sn</th><th>Events</th><th>Location</th><th>Date</th><th>Time</th><th>Days</th><th>source</th>
                 </tr>
             </thead>
 <tbody>
-{   Object.keys(reports).map(e=>  reports[e].category ==='draft' &&   (<tr>
+{   Object.keys(reports).map(e=>  reports[e].category ==='close' &&   (<tr>
             <td></td><td>{reports[e].event}</td> <td>{reports[e].ward+', '+reports[e].lga}</td>
             <td>
                 {new Date(reports[e].date).getDate()+'/'+new Date(reports[e].date).getMonth() +'/'+ new Date(reports[e].date).getFullYear()}
@@ -65,10 +63,12 @@ const FireTable = ({reports, fire}) =>{
                 {new Date(reports[e].date).getHours()+ ':' + new Date(reports[e].date).getMonth() + ':' + new Date(reports[e].date).getSeconds()}
             </td>
             <td>
-                {  Math.round((today.getTime() - (new Date(reports[e].date)).getTime())/day1).toFixed(0)
+          
+                {  Math.round((((new Date(reports[e].closeddate)).getTime()) - (new Date(reports[e].date)).getTime())/day1).toFixed(0)
     }
+           
             </td>
-            <td>{reports[e].type}</td><td><a href={`#/draft/${reports[e].id}`}><button className='btn btn-primary'>View</button></a></td>
+            <td>{reports[e].type}</td><td><a href={`#draft/followup/${reports[e].id}`}><button className='btn btn-primary'>View</button></a></td>
         </tr>)
     )
 }
@@ -78,4 +78,4 @@ const FireTable = ({reports, fire}) =>{
 </div>
     )
 }
-export default DraftReports
+export default ClosedReports

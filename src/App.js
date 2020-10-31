@@ -17,6 +17,9 @@ import UpdateCategory from './components/reports/updatecategory';
 import FollowupReports from './components/reports/followupreports';
 import FollowupDetails from './components/reports/followupdetails';
 import Volunteers from './components/users/volunteers';
+import FollowupLists from './components/reports/followlists';
+import ClosedReports from './components/reports/closedreports';
+import CategoryFollowup from './components/reports/categoryfollowup';
 //import ReportsDetails
 
 
@@ -35,11 +38,15 @@ function App() {
         <Route path="/reportsbylga/:id" exact component={ReportsByLGA} />
         <Route path="/drafts" exact component={DraftReports} />
         <Route path="/draft/:id" exact component={DraftDetails} />
+        <Route path="/closedreports" exact component={ClosedReports} />
         <Route path="/updateoid/:id" exact component={UpdateOid} />
         <Route path="/updatevid/:id" exact component={UpdateVid} />
         <Route path="/updatecategory/:id" exact component={UpdateCategory} />
+        <Route path="/followupcategory/:id" exact component={CategoryFollowup} />
+
         <Route path="/followup" exact component={FollowupReports} />
         <Route path="/followup/:id" exact component={FollowupDetails} />
+        <Route path="/draft/followup/:id" exact component={FollowupLists} />
         <Route path="/volunteers" exact component={Volunteers} />
 
 

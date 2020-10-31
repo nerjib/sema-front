@@ -5,7 +5,7 @@ import { set } from 'jsonpointer';
 
 
 
-const DraftDetails = ({match}) => {
+const FollowupLists = ({match}) => {
     const [report, setReport] = useState('')
     const [feedback, setFeedback] = useState([])
     const [msg, setMsg]=useState('')
@@ -92,13 +92,13 @@ axios.get('https://kd-sema.herokuapp.com/api/v1/reports/reportfeedback/'+match.p
         
 
         const load=()=>{
-    /*        setInterval(()=>  
+            setInterval(()=>  
                 axios.get('https://kd-sema.herokuapp.com/api/v1/reports/followup/'+match.params.id)
                 .then(res=>{
                     setFollowup(res.data)
                 })            
             ,1000)
-            */
+            
         }
         useEffect(()=> load(),[])
 /*
@@ -175,7 +175,7 @@ axios.get('https://kd-sema.herokuapp.com/api/v1/reports/reportfeedback/'+match.p
                              
                                       
                      <td>
-                   <a href={`#/updatecategory/${match.params.id}`}> <button>Edit</button></a>
+                   <a href={`#/followupcategory/${match.params.id}`}> <button>Edit</button></a>
                      </td>
                        
                     </tr>
@@ -204,7 +204,7 @@ axios.get('https://kd-sema.herokuapp.com/api/v1/reports/reportfeedback/'+match.p
                 </tbody>
             </table>
             { 
-               /* Object.keys(followup).map((e,i)=>
+                Object.keys(followup).map((e,i)=>
                              <div >{i+1 +'. '+followup[e].id} 
                              {' '+followup[e].time}'
                              <a href={`#/followup/${followup[e].id}`}> <button>View</button></a>
@@ -212,7 +212,7 @@ axios.get('https://kd-sema.herokuapp.com/api/v1/reports/reportfeedback/'+match.p
                            
                              </div>
                             
-            )*/}
+            )}
 
 
                       
@@ -222,4 +222,4 @@ axios.get('https://kd-sema.herokuapp.com/api/v1/reports/reportfeedback/'+match.p
 
 
 
-export default DraftDetails
+export default FollowupLists

@@ -38,6 +38,10 @@ const FollowupReports = () => {
 }
 
 const FireTable = ({reports, fire}) =>{
+
+    let day1 = 1000 * 3600 * 24;
+    let today = new Date();
+
     
     return( 
         <div>
@@ -46,7 +50,7 @@ const FireTable = ({reports, fire}) =>{
         <table  className='table'>
             <thead>
                 <tr>
-                    <th>sn</th><th>Events</th><th>Location</th><th>Date</th><th>Time</th><th>source</th>
+                    <th>sn</th><th>Events</th><th>Location</th><th>Date</th><th>Time</th><th>Days</th><th>source</th>
                 </tr>
             </thead>
 <tbody>
@@ -58,7 +62,13 @@ const FireTable = ({reports, fire}) =>{
             <td>
                 {new Date(reports[e].date).getHours()+ ':' + new Date(reports[e].date).getMonth() + ':' + new Date(reports[e].date).getSeconds()}
             </td>
-            <td>{reports[e].type}</td><td><a href={`#/draft/${reports[e].id}`}><button className='btn btn-primary'>View</button></a></td>
+            <td>
+          
+                {  Math.round((today.getTime() - (new Date(reports[e].date)).getTime())/day1).toFixed(0)
+    }
+           
+            </td>
+            <td>{reports[e].type}</td><td><a href={`#draft/followup/${reports[e].id}`}><button className='btn btn-primary'>View</button></a></td>
         </tr>)
     )
 }
