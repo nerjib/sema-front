@@ -155,7 +155,7 @@ const Body = ({fire, flood, accident, time, zoneAFire,zoneBFire,zoneCFire, zoneA
     }
                     </div>
 
-          <Link to="/reports">        <div  className='box2'>
+          <Link to="/#">        <div  className='box2'>
                       <h3>  Fire</h3><br/>
     <h2>  {Number(zoneAFire) +Number(zoneBFire)+Number(zoneCFire)}</h2>
     <ZoneApie  labels={Firelabel} backgroundColor={Firecolor} data={Firedata} />
@@ -168,7 +168,7 @@ const Body = ({fire, flood, accident, time, zoneAFire,zoneBFire,zoneCFire, zoneA
                     </div></Link>
           
              
-             <Link to="/floodreports">      <div className='box2'>
+             <Link to="/#">      <div className='box2'>
              <h3>  Flood</h3><br/>
                     <h2>{Number(zoneAFlood) + Number(zoneBFlood)+ Number(zoneCFlood) }</h2>
           {//}          <img style={{zIndex:3, height:'15vh'}} className='responsive-image' id='img' 
@@ -179,7 +179,7 @@ const Body = ({fire, flood, accident, time, zoneAFire,zoneBFire,zoneCFire, zoneA
 
                     </div></Link>
 
-                    <Link to="/floodreports">      <div className='box2'>
+                    <Link to="/#">      <div className='box2'>
              <h3>  Accidents</h3><br/>
                     <h2>{Number(zoneAAccident) +Number(zoneBAccident)+ Number(zoneCAccident) }</h2>
           {//}          <img style={{zIndex:3, height:'15vh'}} className='responsive-image' id='img' 
