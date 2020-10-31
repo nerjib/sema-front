@@ -40,7 +40,6 @@ const update=()=>{
             {userSelect}
             <select className='form-control' id='title' name='title' onChange={handlechangeUser}>
                 <option >...select</option>
-                <option value='Sanitation'>Sanitation</option>
                     {Object.keys(users).map(e=>
                         <option value={users[e].id}>{users[e].first_name}</option>
                     )}

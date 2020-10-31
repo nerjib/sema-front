@@ -7,7 +7,7 @@ const UpdateCategory =({match})=>{
 const [phone, setPhone]=useState('')
 const [users, setUsers]= useState('')
 const [userSelect, setUserselect]= useState('')
-const [category, setCategory]= useState('')
+const [category, setCategory]= useState('followup')
 
 const categorytype=['followup','close','rejected']
 
@@ -21,7 +21,8 @@ const onchangePhone = (e) =>{
 
 }
 
-const handlechangeUser =(e)=>{
+const changecategory =(e)=>{
+ //   alert(e)
     const {value}=e.target
     setCategory(value)
 }
@@ -38,9 +39,8 @@ const update=()=>{
     return(
         <div>
             <input type='text' onChange={onchangePhone} value={phone}/>
-            {users.length}
             {userSelect}
-            <select className='form-control' id='title' name='title' onChange={handlechangeUser}>
+            <select className='form-control' id='title' name='title' onChange={changecategory}>
                     {categorytype.map((e,i)=>
                         <option value={e}>{e}</option>
                       )}
