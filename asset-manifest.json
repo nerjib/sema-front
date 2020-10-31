@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/sema-front/static/css/main.9687f78f.chunk.css",
-    "main.js": "/sema-front/static/js/main.53c32077.chunk.js",
-    "main.js.map": "/sema-front/static/js/main.53c32077.chunk.js.map",
+    "main.js": "/sema-front/static/js/main.b2518d2c.chunk.js",
+    "main.js.map": "/sema-front/static/js/main.b2518d2c.chunk.js.map",
     "runtime-main.js": "/sema-front/static/js/runtime-main.e5bb60cd.js",
     "runtime-main.js.map": "/sema-front/static/js/runtime-main.e5bb60cd.js.map",
     "static/css/2.f3cffc9e.chunk.css": "/sema-front/static/css/2.f3cffc9e.chunk.css",
     "static/js/2.1959e062.chunk.js": "/sema-front/static/js/2.1959e062.chunk.js",
     "static/js/2.1959e062.chunk.js.map": "/sema-front/static/js/2.1959e062.chunk.js.map",
     "index.html": "/sema-front/index.html",
-    "precache-manifest.5bd9227be7ce0d5dee91a5c77fe6fedb.js": "/sema-front/precache-manifest.5bd9227be7ce0d5dee91a5c77fe6fedb.js",
+    "precache-manifest.ba3361d31d18893be36707fd0de6f562.js": "/sema-front/precache-manifest.ba3361d31d18893be36707fd0de6f562.js",
     "service-worker.js": "/sema-front/service-worker.js",
     "static/css/2.f3cffc9e.chunk.css.map": "/sema-front/static/css/2.f3cffc9e.chunk.css.map",
     "static/css/main.9687f78f.chunk.css.map": "/sema-front/static/css/main.9687f78f.chunk.css.map",
@@ -25,6 +25,6 @@
     "static/css/2.f3cffc9e.chunk.css",
     "static/js/2.1959e062.chunk.js",
     "static/css/main.9687f78f.chunk.css",
-    "static/js/main.53c32077.chunk.js"
+    "static/js/main.b2518d2c.chunk.js"
   ]
 }
