@@ -146,5 +146,12 @@ h2{
     border-radius: 3px;
     background-color: #00bb99
 }
-    
+.header{
+    grid-area: header;
+    grid-gap: 20px;
+    position:  relative;
+    width: 100%;
+
+}
+   
 }

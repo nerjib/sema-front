@@ -248,7 +248,7 @@ const Menu = (         {diffdate}
     return (
 <div className='Menu'>
                 <button className='button'>
-                Home  { new Date().toLocaleString() }      {diffdate}
+                Home        {diffdate}
 
             </button>
             <a href={`#/kdmap`}>
