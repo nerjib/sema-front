@@ -7,7 +7,7 @@ import KDMap from './components/Map/kdmap';
 import ReportDetails from './components/reports/reportDetails';
 import UpdateAid from './components/reports/updateAid'
 import IncidentMap from './components/Map/incident';
-import Login from './components/login';
+import Login from './login';
 import ReportsByLGA from './components/reports/reportsbylga'
 import DraftReports from './components/reports/draftreports';
 import DraftDetails from './components/reports/draftdetails';

@@ -5,7 +5,7 @@ import { Link, Route, Redirect } from 'react-router-dom';
 
 
 
-const FollowupDetails = ({match}) => {
+const ClosedDetails = ({match}) => {
     const [report, setReport] = useState('')
     const [feedback, setFeedback] = useState([])
     const [msg, setMsg]=useState('')
@@ -330,4 +330,4 @@ axios.get('https://kd-sema.herokuapp.com/api/v1/reports/reportfeedback/'+match.p
 
 
 
-export default FollowupDetails
+export default ClosedDetails
